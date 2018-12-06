@@ -198,7 +198,7 @@ classdef SensorDataYarpI < handle
                 port = obj.openports(key{:});
                 % run datadumper and get process PID
                 [status,pid]=system(...
-                    ['yarpdatadumper ' ...    % run data dumper
+                    ['mkdir -p ' port.path ' & yarpdatadumper ' ...    % run data dumper
                     '--dir ' port.path ...    % set output folder
                     ' --name ' port.to ' --type bottle ' ... % yarp port, data type
                     '&> /dev/null & ' ...     % redirect all output to garbage and run process on backgroung
